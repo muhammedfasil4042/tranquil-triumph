@@ -410,19 +410,26 @@
     link.remove();
 });
 
-// Attempt to open Google Pay / UPI intent (Android) or fallback
 document.getElementById('payGPay').addEventListener('click', () => {
+  
+  const upi = 'upi://pay?pa=ashiqpharma@oksbi&pn=Tranquil%20Triumph&am=500&tn=Player%20Registration%20Fee';
 
-  const upi = 'upi://pay?pa=ashiqpharma@oksbi&pn=Tranquil%20Triumph&am=500&tn=Player%20Registration%20Fee%20500';
-
-  // Try to open UPI intent
+  // Try to open UPI apps
   window.location.href = upi;
 
-  // If not supported
+  // iPhone fallback
   setTimeout(() => {
-    alert('If the payment app did not open, please scan the QR code or pay to UPI ID: ashiqpharma@oksbi');
-  }, 1200);
+    if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+      alert(
+        "Your iPhone does not support direct UPI payment links.\n\n" +
+        "Please scan the QR code or pay manually to:\n\n" +
+        "UPI ID: ashiqpharma@oksbi"
+      );
+    }
+  }, 800);
+
 });
+
 
     // Open device camera to scan (basic) — uses getUserMedia and shows a full screen preview to let user scan QR externally
     document.getElementById('scanQR').addEventListener('click',async()=>{
