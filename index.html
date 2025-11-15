@@ -410,15 +410,19 @@
     link.remove();
 });
 
-    // Attempt to open Google Pay / UPI intent (Android) or fallback
-    document.getElementById('payGPay').addEventListener('click',()=>{
-      // Replace pa (payee address) with real UPI ID before going live
-      const upi = 'upi://pay?pa=example@upi&pn=Tranquil%20Triumph&am=1500&tn=Entry%20Fee';
-      // Try to open UPI intent
-      window.location.href = upi;
-      // If not supported user can scan QR
-      setTimeout(()=>{alert('If payment app did not open, please scan the QR code or use your payment app to pay the UPI ID shown.')},1200);
-    });
+// Attempt to open Google Pay / UPI intent (Android) or fallback
+document.getElementById('payGPay').addEventListener('click', () => {
+
+  const upi = 'upi://pay?pa=ashiqpharma@oksbi&pn=Tranquil%20Triumph&am=500&tn=Player%20Registration%20Fee%20500';
+
+  // Try to open UPI intent
+  window.location.href = upi;
+
+  // If not supported
+  setTimeout(() => {
+    alert('If the payment app did not open, please scan the QR code or pay to UPI ID: ashiqpharma@oksbi');
+  }, 1200);
+});
 
     // Open device camera to scan (basic) — uses getUserMedia and shows a full screen preview to let user scan QR externally
     document.getElementById('scanQR').addEventListener('click',async()=>{
