@@ -59,6 +59,13 @@
     .carousel-controls{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:3}
     .dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,0.12);cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,0.5)}
     .dot.active{background:var(--accent);transform:scale(1.25)}
+    .full-width-sponsor {
+    width: 100%;
+    max-width: 1200px; /* keeps quality */
+    margin: 20px auto;
+    display: block;
+    border-radius: 10px;
+}
 
     /* Layout */
     .grid{display:grid;grid-template-columns:1fr 360px;gap:20px;margin-top:20px}
@@ -259,7 +266,7 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Tranquil Triumph – Cricket Tournament 2025">
 <meta property="og:description" content="Exciting cricket tournament with 12 teams! Player registration fee ₹500. Scan QR to pay. Register now!">
-<meta property="og:image" content="https://i.postimg.cc/Rh9q55rL/logo.jpg"> 
+<meta property="og:image" content="https://i.postimg.cc/G3qpb0hG/IMG-8454.jpg"> 
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 
@@ -268,7 +275,7 @@
 <meta name="twitter:url" content="https://your-domain.com/">
 <meta name="twitter:title" content="Tranquil Triumph – Cricket Tournament 2025">
 <meta name="twitter:description" content="Register now for Tranquil Triumph Cricket Tournament 2025. Entry Fee ₹500.">
-<meta name="twitter:image" content="https://i.postimg.cc/Rh9q55rL/logo.jpg">
+<meta name="twitter:image" content="https://i.postimg.cc/G3qpb0hG/IMG-8454.jpg">
 
 <!-- Mobile Friendly -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -296,22 +303,22 @@
     <!-- Carousel -->
     <div class="card carousel" id="carousel">
       <div class="slides" id="slides">
-        <div class="slide" style="background-image:url('https://picsum.photos/id/1033/1600/900')">
+        <div class="slide" style="background-image:url('https://images.pexels.com/photos/30387509/pexels-photo-30387509.jpeg')">
           <div class="slide-content">
-            <h2>🏏 TRANQUIL TRIUMPH</h2>
-            <p>CCS Cricket League — Season 1 • 12 Teams • Let's Play!</p>
+            <h2>🎤Ayaad Presents | Boney M UNITED</h2>
+            <p>Setting the stage for a TRIUMPH of talent at CCS Cricket League – Season 1!</p>
           </div>
         </div>
-        <div class="slide" style="background-image:url('https://picsum.photos/id/1025/1600/900')">
+        <div class="slide" style="background-image:url('https://images.pexels.com/photos/30671893/pexels-photo-30671893.jpeg')">
           <div class="slide-content">
-            <h2>Matchday Festivities</h2>
-            <p>Food, Music & Family-friendly entertainment</p>
+            <h2>✨Tranquil Triumph Begins</h2>
+            <p>Boney M United ready to groove,shine & dominate the CCS Cricket League Season 1</p>
           </div>
         </div>
-        <div class="slide" style="background-image:url('https://picsum.photos/id/1003/1600/900')">
+        <div class="slide" style="background-image:url('https://images.pexels.com/photos/30678437/pexels-photo-30678437.jpeg')">
           <div class="slide-content">
-            <h2>Win the Trophy</h2>
-            <p>Compete. Enjoy. Celebrate.</p>
+            <h2>🏏Rhythm, Passion & Power</h2>
+            <p>Boney M United marches into CCS Season 1 with unstoppable energy — Let the triumph begin!</p>
           </div>
         </div>
       </div>
@@ -367,6 +374,8 @@
     <div class="sponsor"><img src="images/sponsors-list/11.jpg"></div>
     <div class="sponsor"><img src="images/sponsors-list/12.jpg"></div>
   </div>
+      <img src="images/sponsors.jpg" alt="Main Sponsor" class="full-width-sponsor">
+
 </div>
 
         <!-- Teams -->
@@ -471,7 +480,7 @@ document.getElementById('payGPay').addEventListener('click', () => {
 });
 
 document.getElementById('sendWhatsApp').addEventListener('click', () => {
-    const phoneNumber = "919072914585"; // <-- REPLACE WITH YOUR NUMBER
+    const phoneNumber = "971554628271"; // <-- REPLACE WITH YOUR NUMBER
     const message = encodeURIComponent(
         "Hi, I have completed the payment of ₹500.\nHere is my payment screenshot:"
     );
