@@ -44,6 +44,63 @@
   cursor: pointer;
   margin-top: 15px;
 }
+/* Auction Section */
+.auction-section {
+  margin-top: 20px;
+  background: linear-gradient(180deg, var(--glass), var(--glass-2));
+  border-radius: var(--radius);
+  padding: 20px;
+  border: 1px solid rgba(255,255,255,0.05);
+  box-shadow: 0 6px 24px rgba(0,0,0,0.4);
+  backdrop-filter: blur(6px);
+  overflow: hidden;
+}
+
+.auction-title {
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 18px;
+  /* text-align: center;
+  color: var(--accent); */
+}
+
+.auction-slider {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.auction-track {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  animation: auctionSlide 45s linear infinite;
+}
+
+.auction-track img {
+  width: 100%;
+  max-width: 330px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 14px;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+/* Infinite sliding animation */
+@keyframes auctionSlide {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* 📱 Mobile Fix: No horizontal scroll */
+@media(max-width: 600px) {
+  .auction-track img {
+    max-width: 230px;
+    height: 100%;
+  }
+}
+
 
     /* Card */
     .card{background:linear-gradient(180deg,var(--glass),var(--glass-2));border-radius:var(--radius);padding:18px;border:1px solid rgba(255,255,255,0.04);box-shadow:0 6px 30px rgba(2,6,23,0.6)}
@@ -260,7 +317,7 @@
   <!-- Primary Meta Tags -->
 <title>Tranquil Triumph – Cricket Tournament 2025</title>
 <meta name="title" content="Tranquil Triumph – Cricket Tournament 2025">
-<meta name="description" content="Join the Tranquil Triumph Cricket Tournament 2025! Register your team, pay entry fees, view sponsors, fixtures, and updates.">
+<meta name="description" content="Cricket is not just a game, it’s a bond of unity, love, and togetherness – where passion gathers us, friendship strengthens us, and memories stay forever.">
 
 <!-- Open Graph / Facebook / WhatsApp Preview -->
 <meta property="og:type" content="website">
@@ -378,6 +435,54 @@
 
 </div>
 
+<!-- Player Auction Photo Slider -->
+<section class="card auction-section">
+  <h2 class="auction-title">📸 Player Auction – Highlights</h2>
+
+  <div class="auction-slider">
+    <div class="auction-track">
+
+      <!-- 20 Photos -->
+      <img src="images/auction/1.jpg">
+      <img src="images/auction/2.jpg">
+      <img src="images/auction/3.jpg">
+      <img src="images/auction/4.jpg">
+      <img src="images/auction/5.jpg">
+      <img src="images/auction/6.jpg">
+      <img src="images/auction/7.jpg">
+      <img src="images/auction/8.jpg">
+      <img src="images/auction/9.jpg">
+      <img src="images/auction/10.jpg">
+      <img src="images/auction/11.jpg">
+      <img src="images/auction/12.jpg">
+      <img src="images/auction/13.jpg">
+      <img src="images/auction/14.jpg">
+      <img src="images/auction/15.jpg">
+      <img src="images/auction/16.jpg">
+      <img src="images/auction/17.jpg">
+      <img src="images/auction/18.jpg">
+      <img src="images/auction/19.jpg">
+      <img src="images/auction/20.jpg">
+      
+       <img src="images/auction/21.jpg">
+      <img src="images/auction/22.jpg">
+      <img src="images/auction/23.jpg">
+      <img src="images/auction/24.jpg">
+      <img src="images/auction/25.jpg">
+      <img src="images/auction/26.jpg">
+
+      <!-- Duplicate for seamless loop -->
+      <img src="images/auction/1.jpg">
+      <img src="images/auction/2.jpg">
+      <img src="images/auction/3.jpg">
+
+    </div>
+  </div>
+</section>
+
+
+
+
         <!-- Teams -->
         <div class="card">
           <h3 style="margin:0 0 10px">Registered Teams (12)</h3>
@@ -491,21 +596,21 @@ document.getElementById('sendWhatsApp').addEventListener('click', () => {
 
 
     // Open device camera to scan (basic) — uses getUserMedia and shows a full screen preview to let user scan QR externally
-    document.getElementById('scanQR').addEventListener('click',async()=>{
-      if(!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia){
-        alert('Camera access is not available in this browser. Please use your phone camera to scan the QR.');
-        return;
-      }
-      try{
-        const stream = await navigator.mediaDevices.getUserMedia({video:{facingMode:'environment'}});
-        const video = document.createElement('video');
-        video.style.position='fixed';video.style.inset=0;video.style.zIndex=999999;video.style.width='100%';video.style.height='100%';video.autoplay=true;video.playsInline=true;document.body.appendChild(video);
-        video.srcObject = stream;
-        const stop = ()=>{stream.getTracks().forEach(t=>t.stop());video.remove()};
-        video.addEventListener('click',stop);
-        alert('Tap the screen to close camera preview. Use your camera to scan the QR from another device.');
-      }catch(e){alert('Unable to open camera: '+e.message)}
-    });
+    // document.getElementById('scanQR').addEventListener('click',async()=>{
+    //   if(!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia){
+    //     alert('Camera access is not available in this browser. Please use your phone camera to scan the QR.');
+    //     return;
+    //   }
+    //   try{
+    //     const stream = await navigator.mediaDevices.getUserMedia({video:{facingMode:'environment'}});
+    //     const video = document.createElement('video');
+    //     video.style.position='fixed';video.style.inset=0;video.style.zIndex=999999;video.style.width='100%';video.style.height='100%';video.autoplay=true;video.playsInline=true;document.body.appendChild(video);
+    //     video.srcObject = stream;
+    //     const stop = ()=>{stream.getTracks().forEach(t=>t.stop());video.remove()};
+    //     video.addEventListener('click',stop);
+    //     alert('Tap the screen to close camera preview. Use your camera to scan the QR from another device.');
+    //   }catch(e){alert('Unable to open camera: '+e.message)}
+    // });
 
     // Tiny enhancement: make sponsors horizontally draggable on desktop
     (function(){const s=document.getElementById('sponsors');let down=false,startX,scrollLeft;s.addEventListener('mousedown',e=>{down=true;startX=e.pageX - s.offsetLeft;scrollLeft=s.scrollLeft});window.addEventListener('mouseup',()=>down=false);s.addEventListener('mousemove',e=>{if(!down) return;e.preventDefault();const x=e.pageX - s.offsetLeft;const walk=(x - startX)*1.5;s.scrollLeft = scrollLeft - walk;});})();
