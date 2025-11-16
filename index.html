@@ -44,7 +44,6 @@
   cursor: pointer;
   margin-top: 15px;
 }
-/* Auction Section */
 .auction-section {
   margin-top: 20px;
   background: linear-gradient(180deg, var(--glass), var(--glass-2));
@@ -53,53 +52,82 @@
   border: 1px solid rgba(255,255,255,0.05);
   box-shadow: 0 6px 24px rgba(0,0,0,0.4);
   backdrop-filter: blur(6px);
-  overflow: hidden;
 }
 
 .auction-title {
-  font-size: 17px;
-  font-weight: 700;
-  margin-bottom: 18px;
-  /* text-align: center;
-  color: var(--accent); */
+  /* text-align: center; */
+  /* color: var(--accent); */
+  font-size: 18px;
+  margin-bottom: 15px;
 }
 
-.auction-slider {
-  width: 100%;
-  overflow: hidden;
+/* Carousel Wrapper */
+.auction-carousel {
   position: relative;
-}
-
-.auction-track {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  animation: auctionSlide 45s linear infinite;
-}
-
-.auction-track img {
-  width: 100%;
-  max-width: 330px;
-  height: 180px;
-  object-fit: cover;
+  width: 50%;
+  max-width: 900px;
+      height: 900px;
+  margin: auto;
+  overflow: hidden;
   border-radius: 14px;
-  flex-shrink: 0;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
 }
 
-/* Infinite sliding animation */
-@keyframes auctionSlide {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+/* Fade Image Stack */
+.carousel-container {
+  position: relative;
+  height: 100%;
+  min-height: 230px; /* keep minimum height */
 }
 
-/* 📱 Mobile Fix: No horizontal scroll */
-@media(max-width: 600px) {
-  .auction-track img {
-    max-width: 230px;
-    height: 100%;
+.carousel-container img {
+  width: 100%;
+  height: 100%;       /* FULL HEIGHT */
+  object-fit: cover;  /* keeps ratio but fills */
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.carousel-container img.active {
+  opacity: 1;
+}
+
+/* Arrows */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.4);
+  border: none;
+  color: white;
+  padding: 12px 18px;
+  font-size: 22px;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 10;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+.arrow:hover {
+  background: rgba(0,0,0,0.7);
+}
+
+/* Mobile Optimization */
+@media(max-width:600px) {
+  .carousel-container { height: 600px; }
+  .carousel-container img {
+    height: 600px;
+  }
+  .auction-carousel{
+    width: 100%;
+    height: 580px;
   }
 }
+
 
 
     /* Card */
@@ -436,49 +464,49 @@
 </div>
 
 <!-- Player Auction Photo Slider -->
-<section class="card auction-section">
+<section class="auction-section card">
   <h2 class="auction-title">📸 Player Auction – Highlights</h2>
 
-  <div class="auction-slider">
-    <div class="auction-track">
+  <div class="auction-carousel">
 
-      <!-- 20 Photos -->
-      <img src="images/auction/1.jpg">
-      <img src="images/auction/2.jpg">
-      <img src="images/auction/3.jpg">
-      <img src="images/auction/4.jpg">
-      <img src="images/auction/5.jpg">
-      <img src="images/auction/6.jpg">
-      <img src="images/auction/7.jpg">
-      <img src="images/auction/8.jpg">
-      <img src="images/auction/9.jpg">
-      <img src="images/auction/10.jpg">
-      <img src="images/auction/11.jpg">
-      <img src="images/auction/12.jpg">
-      <img src="images/auction/13.jpg">
-      <img src="images/auction/14.jpg">
-      <img src="images/auction/15.jpg">
-      <img src="images/auction/16.jpg">
-      <img src="images/auction/17.jpg">
-      <img src="images/auction/18.jpg">
-      <img src="images/auction/19.jpg">
-      <img src="images/auction/20.jpg">
-      
-       <img src="images/auction/21.jpg">
-      <img src="images/auction/22.jpg">
-      <img src="images/auction/23.jpg">
-      <img src="images/auction/24.jpg">
-      <img src="images/auction/25.jpg">
-      <img src="images/auction/26.jpg">
+    <button class="arrow prev">❮</button>
 
-      <!-- Duplicate for seamless loop -->
-      <img src="images/auction/1.jpg">
-      <img src="images/auction/2.jpg">
-      <img src="images/auction/3.jpg">
+    <div class="carousel-container">
+      <img src="images/auction/1.jpg" class="slide active">
+      <img src="images/auction/2.jpg" class="slide">
+      <img src="images/auction/3.jpg" class="slide">
+      <img src="images/auction/4.jpg" class="slide">
+      <img src="images/auction/5.jpg" class="slide">
+      <img src="images/auction/6.jpg" class="slide">
+      <img src="images/auction/7.jpg" class="slide">
+      <img src="images/auction/8.jpg" class="slide">
+      <img src="images/auction/9.jpg" class="slide">
+      <img src="images/auction/10.jpg" class="slide">
+      <img src="images/auction/11.jpg" class="slide">
+      <img src="images/auction/12.jpg" class="slide">
+      <img src="images/auction/13.jpg" class="slide">
+      <img src="images/auction/14.jpg" class="slide">
+      <img src="images/auction/15.jpg" class="slide">
+      <img src="images/auction/16.jpg" class="slide">
+      <img src="images/auction/17.jpg" class="slide">
+      <img src="images/auction/18.jpg" class="slide">
+      <img src="images/auction/19.jpg" class="slide">
+      <img src="images/auction/20.jpg" class="slide">
+      <img src="images/auction/21.jpg" class="slide">
+      <img src="images/auction/22.jpg" class="slide">
+      <img src="images/auction/23.jpg" class="slide">
+      <img src="images/auction/24.jpg" class="slide">
+      <img src="images/auction/25.jpg" class="slide">
+      <img src="images/auction/26.jpg" class="slide">
+
 
     </div>
+
+    <button class="arrow next">❯</button>
+
   </div>
 </section>
+
 
 
 
@@ -541,6 +569,59 @@
       <div class="muted">© 2025 Tranquil Triumph</div>
     </footer>
   </div>
+  <script>
+let slides1 = document.querySelectorAll(".slide");
+let index = 0;
+
+/* Show Slide */
+function showSlide(i) {
+  slides1.forEach(slide => slide.classList.remove("active"));
+  slides1[i].classList.add("active");
+}
+
+/* Next / Prev */
+document.querySelector(".next").onclick = () => {
+  index = (index + 1) % slides1.length;
+  showSlide(index);
+};
+
+document.querySelector(".prev").onclick = () => {
+  index = (index - 1 + slides1.length) % slides1.length;
+  showSlide(index);
+};
+
+/* Auto-slide every 4 seconds */
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    setInterval(() => {
+      index = (index + 1) % slides1.length;
+      showSlide(index);
+    }, 4000);
+  }, 500); // small delay fixes initial fade bug
+});
+
+/* Touch Swipe Support */
+let startX = 0;
+
+document.querySelector(".carousel-container").addEventListener("touchstart", e => {
+  startX = e.touches[0].clientX;
+});
+
+document.querySelector(".carousel-container").addEventListener("touchend", e => {
+  let endX = e.changedTouches[0].clientX;
+
+  if (startX - endX > 50) {
+    // Swipe left
+    index = (index + 1) % slides1.length;
+  } else if (endX - startX > 50) {
+    // Swipe right
+    index = (index - 1 + slides1.length) % slides1.length;
+  }
+
+  showSlide(index);
+});
+</script>
+
 
   <script>
     // Simple carousel
@@ -593,6 +674,7 @@ document.getElementById('sendWhatsApp').addEventListener('click', () => {
     // Opens WhatsApp chat (Android + iOS supported)
     window.location.href = `https://wa.me/${phoneNumber}?text=${message}`;
 });
+
 
 
     // Open device camera to scan (basic) — uses getUserMedia and shows a full screen preview to let user scan QR externally
